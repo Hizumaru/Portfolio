@@ -1,21 +1,26 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation'; // for App Router
+// For Pages Router, use: import { useRouter } from 'next/router';
+
 
 const HomePage: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
-    // Fade in effect after the component mounts
     setIsVisible(true);
   }, []);
 
-  const handleClick = () => {
+  const handleExternalClick = () => {
     window.open('https://cogs123final.wixsite.com/zing', '_blank');
   };
-  const handleClick2 = () => {
-    window.open('https://drive.google.com/file/d/1Qhdb0ElGZM6EERfdosI--ymr1W14lAk_/view', '_blank'); // Open a new website
+
+  const handleRouteClick = () => {
+    router.push('/about');
   };
+
   return (
     <div
       style={{
@@ -26,34 +31,35 @@ const HomePage: React.FC = () => {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        gap: '40px', // Increase the gap between buttons here
+        gap: '40px',
       }}
     >
-      <h1 style={{ textAlign: 'center' }}>Welcome to Sean's Home Page!</h1>
+      <h1 style={{ textAlign: 'center' }}>Welcome to Sean's Project Home Page!</h1>
+
+      {/* External Link Button */}
       <button
         className={`btn btn-outline ${isVisible ? 'fade-in' : ''}`}
-        type="button"
-        onClick={handleClick}
+        onClick={handleExternalClick}
         style={{
-          fontSize: '15px', // Larger text
-          padding: '10px 20px', // Bigger button size (vertical and horizontal padding)
-          borderRadius: '8px', // Optional: Adds rounded corners
+          fontSize: '15px',
+          padding: '10px 20px',
+          borderRadius: '8px',
         }}
       >
         Dating App
       </button>
 
+      {/* Internal Route Button */}
       <button
         className={`btn btn-outline ${isVisible ? 'fade-in' : ''}`}
-        type="button"
-        onClick={handleClick2}
+        onClick={handleRouteClick}
         style={{
-          fontSize: '15px', // Larger text
-          padding: '10px 20px', // Bigger button size (vertical and horizontal padding)
-          borderRadius: '8px', // Optional: Adds rounded corners
+          fontSize: '15px',
+          padding: '10px 20px',
+          borderRadius: '8px',
         }}
       >
-        My Resume
+        About Page
       </button>
 
       <style jsx>{`
