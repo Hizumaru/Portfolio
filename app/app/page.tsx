@@ -1,26 +1,56 @@
-"use client";
+'use client';
 
-import React from "react";
-import Link from "next/link";
+import React, { useEffect, useState } from 'react';
 
-const Layout: React.FC = () => {
+const HomePage: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Fade in effect after the component mounts
+    setIsVisible(true);
+  }, []);
+
+  const handleClick = () => {
+    window.open('https://cogs123final.wixsite.com/zing', '_blank');
+  };
+
   return (
     <div
       style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-        flexDirection: "column",
-        textAlign: "center",
+        backgroundColor: 'black',
+        color: 'white',
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
     >
-      <h1>Welcome to Sean's Home Page!</h1>
-      <Link href="/about">
-      <button className="mt-8 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 hover:shadow-xl transition-all duration-300"> Go to About Page </button>
-      </Link>
+      <h1 style={{ textAlign: 'center' }}>Welcome to Sean's Home Page!</h1>
+      <button
+        className={`btn btn-outline ${isVisible ? 'fade-in' : ''}`}
+        type="button"
+        onClick={handleClick}
+      >
+        Project Examples
+      </button>
+
+      <style jsx>{`
+        .fade-in {
+          animation: fadeIn 2s ease-in;
+        }
+
+        @keyframes fadeIn {
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+      `}</style>
     </div>
   );
 };
 
-export default Layout;
+export default HomePage;
