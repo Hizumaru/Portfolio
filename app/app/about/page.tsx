@@ -1,62 +1,30 @@
-'use client';
+"use client"; //Allow React hooks
+import Image from "next/image";
+import Link from "next/link";
 
-import React, { useEffect, useState } from 'react';
-
-const AboutPage: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
+export default function About() {
   return (
-    <div
-      style={{
-        backgroundColor: 'black',
-        color: 'white',
-        height: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        gap: '30px',
-        padding: '20px',
-      }}
-    >
-      <h1 style={{ textAlign: 'center' }}>About Me</h1>
+    <div className = "flex flex-col items-center justify-center min-h-screen p-10 bg-gray-900 text-white">
+      <h1 className="text-4xl font-bold mb-4">About Me</h1>
+      <p className="text-lg max-w-2xl text-center mb-6">
+    Hi I&apos; m Sean Du! This is my personal website where I showcase my projects, ideas, and creativity.
+</p>
 
-      {/* GIF Image */}
-      <img
-        src="https://media.tenor.com/yheo1GGu3FwAAAAM/rick-roll-rick-ashley.gif"
-        alt="About GIF"
-        className={isVisible ? 'fade-in' : ''}
-        style={{
-          width: '250px',
-          height: 'auto',
-          borderRadius: '12px',
-        }}
-      />
+    {/* Second GIF*/}
+    <Image
+      src="/coolGif.gif"
+      alt="Another awesome GIF"
+      width = {300}
+      height={200} 
+      className = "rounded-lg shadow-lg mb-6"
+    />
 
-      <p style={{ textAlign: 'center', maxWidth: '600px' }}>
-        Hey there stranger! My name is Sean. I am passionate about understanding the world around me. I plan to enroll and explore this interest through the differing fields of CogSci, Economics, Philosophy, and Psychology --- in order to shape a more holistic understanding of the society and how it functions.
-      </p>
-
-      <style jsx>{`
-        .fade-in {
-          animation: fadeIn 2s ease-in;
-        }
-
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-      `}</style>
-    </div>
+    {/*Back to Home Button*/}
+    <Link href="/">
+      <button className="px-6 py-2 bg-blue-500 hover:bg-blue-700 rounded lg text-white text-lg">
+        Back to Home
+      </button>
+    </Link>
+  </div>
   );
-};
-
-export default AboutPage;
+}

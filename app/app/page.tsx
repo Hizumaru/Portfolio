@@ -1,83 +1,39 @@
-'use client';
+"use client"; // Allows React hooks
+import Image from "next/image";
+import Link from "next/link"; // Import Link component for navigation
 
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation'; // for App Router
-// For Pages Router, use: import { useRouter } from 'next/router';
-
-
-const HomePage: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const router = useRouter();
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
-  const handleExternalClick = () => {
-    window.open('https://cogs123final.wixsite.com/zing', '_blank');
-  };
-
-  const handleRouteClick = () => {
-    router.push('/about');
-  };
-
+export default function Home() {
   return (
-    <div
-      style={{
-        backgroundColor: 'black',
-        color: 'white',
-        height: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        gap: '40px',
-      }}
-    >
-      <h1 style={{ textAlign: 'center' }}>Welcome to Sean's Project Home Page!</h1>
+    <div className="flex flex-col items-center justify-center min-h-screen p-10 bg-gray-900 text-white">
+      {/* Navigation Buttons */}
+      <div className="absolute top-4 left-4 flex gap-4">
+        <Link href="/about">
+          <button className="px-4 py-2 bg-blue-500 hover:bg-blue-700 rounded-lg text-white text-lg">
+            About Me
+          </button>
+        </Link>
+        <Link href="/draw">
+          <button className="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white text-lg">
+            Draw Something!
+          </button>
+        </Link>
+        <Link href="/projects">
+          <button className="px-4 py-2 bg-purple-500 hover:bg-purple-700 rounded-lg text-white text-lg">
+            My Projects
+          </button>
+        </Link>
+      </div>
 
-      {/* External Link Button */}
-      <button
-        className={`btn btn-outline ${isVisible ? 'fade-in' : ''}`}
-        onClick={handleExternalClick}
-        style={{
-          fontSize: '15px',
-          padding: '10px 20px',
-          borderRadius: '8px',
-        }}
-      >
-        Dating App
-      </button>
+      <h1 className="text-4xl font-bold mb-4">Hi, my name is Luke Gusdorf</h1>
 
-      {/* Internal Route Button */}
-      <button
-        className={`btn btn-outline ${isVisible ? 'fade-in' : ''}`}
-        onClick={handleRouteClick}
-        style={{
-          fontSize: '15px',
-          padding: '10px 20px',
-          borderRadius: '8px',
-        }}
-      >
-        About Page
-      </button>
-
-      <style jsx>{`
-        .fade-in {
-          animation: fadeIn 2s ease-in;
-        }
-
-        @keyframes fadeIn {
-          0% {
-            opacity: 0;
-          }
-          100% {
-            opacity: 1;
-          }
-        }
-      `}</style>
+      {/* GIF */}
+      <Image
+        src="/myGif.gif"
+        alt="A cool GIF"
+        width={300}
+        height={200}
+        className="rounded-lg shadow-lg mb-6"
+      />
     </div>
   );
-};
-
-export default HomePage;
+}
