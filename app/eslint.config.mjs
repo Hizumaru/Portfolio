@@ -8,7 +8,7 @@ const __dirname = dirname(__filename);
 const compat = new FlatCompat({
     baseDirectory: __dirname,
 });
-
+{/* Navigation Buttons */}
 const eslintCongif = [
     ...compat.extends("next/core-web-vitals", "next/typescript"),
 ];

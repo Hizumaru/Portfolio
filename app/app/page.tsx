@@ -14,7 +14,7 @@ export default function Home() {
         </Link>
         <Link href="/draw">
           <button className="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white text-lg">
-            Draw Something!
+            Draw Something!!
           </button>
         </Link>
         <Link href="/projects">

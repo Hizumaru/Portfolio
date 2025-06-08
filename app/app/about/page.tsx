@@ -7,7 +7,7 @@ export default function About() {
     <div className = "flex flex-col items-center justify-center min-h-screen p-10 bg-gray-900 text-white">
       <h1 className="text-4xl font-bold mb-4">About Me</h1>
       <p className="text-lg max-w-2xl text-center mb-6">
-    Hi I&apos; m Sean Du! This is my personal website where I showcase my projects, ideas, and creativity.
+    Hi I&apos; m Sean Du!! This is my personal website where I showcase my projects, ideas, and creativity.
 </p>
 
     {/* Second GIF*/}
