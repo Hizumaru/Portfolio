@@ -12,11 +12,6 @@ export default function Home() {
             About Me
           </button>
         </Link>
-        <Link href="/draw">
-          <button className="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white text-lg">
-            Draw Something!!
-          </button>
-        </Link>
         <Link href="/projects">
           <button className="px-4 py-2 bg-purple-500 hover:bg-purple-700 rounded-lg text-white text-lg">
             My Projects
@@ -24,7 +19,7 @@ export default function Home() {
         </Link>
       </div>
 
-      <h1 className="text-4xl font-bold mb-4">Hi, my name is Luke Gusdorf</h1>
+      <h1 className="text-4xl font-bold mb-4">Hi, my name is Sean Du</h1>
 
       {/* GIF */}
       <Image
